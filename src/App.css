@@ -35,4 +35,11 @@
   to {
     transform: rotate(360deg);
   }
+
+}
+#content{
+  /* background-image: url("D:\Projects\demo-project\public\logo192.png"); */
+  padding: 4px;
+  width: 587px;
+  height: 834px;
 }
