@@ -1,15 +1,15 @@
 import './App.css';
 // import ReadyToGo from "./components/ReadyToGo";
-//import PdfGenerator from './components/PdfGenerator';
-import TextToPDF from './components/TextToPDF';
+// import TextToPDF from './components/TextToPDF';
+import DocToPDF from './components/DocToPDF';
 
 function App() {
   return (
     <div className="App">
       {/* <ReadyToGo/> */}
-      <TextToPDF/>
+      <DocToPDF/>
 
-      {/* <PdfGenerator/> */}
+      {/* <TextToPDF/> */}
     </div>
   );
 }

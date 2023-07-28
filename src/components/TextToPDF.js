@@ -1,39 +1,33 @@
-import React from 'react';
-import jsPDF from 'jspdf';
-class TextToPDF extends React.Component{
-  constructor(props){
-    super(props);
-    this.state={}
-  };
-generatePDF=()=>{
-  var doc=new jsPDF("p","pt","a4");
-    doc.html(document.querySelector("#content"),{
-    callback: function(pdf){
-  var pageCount= doc.internal.getNumberOfPages()
-      pdf.deletePage(pageCount);    
-      pdf.save("download.pdf");
+
+import React, {PureComponent} from 'react';
+import jsPDF from "jspdf";
+export  default class TextToPDF extends PureComponent{
+    constructor(props){
+      super(props)
+      this.state={
+          }
+    }
+jsPdfGenerator=()=>{
+    //neww documnet in jpdf
+    var doc=new jsPDF('p','pt');
+  
+  //add some text to pdf document
+    doc.text(20,20,'This is default text')
+  
+    // set the font of pdf
+    doc.setFont('courier','normal');
+  
+       doc.text(20,30,'This is text with courier font')
+  // save the pdf documnet
+    doc.save("generated.pdf");
   }
- });
-};
-render(){
-  return(
-<div class="ap">
-        <button onClick={this.generatePDF} >Generate PDF</button>
+  render(){
+    return(
+      
+      <div>
+        <button onClick={this.jsPdfGenerator}>Generate PDF</button>
+      </div>
+    );
+  }
+  }
 
-<div id="content">
-
-       <h1>Ready To Go</h1>
-  <hr></hr>
-       <h1>Welcome to React</h1>
-       <h3>Task: Component convert into PDF</h3>
-           <img src="logo192.png" alt="Mountain"></img>
-      <h2>What is React?</h2>
-           <p>React is the tool of choice for many web developers who build front-end web interfaces.</p>
-  <hr></hr>
-      <h2>Task Done! converted into PDF :) :)</h2>
-</div>  
-</div>    
-  );
-}
-}
-export default TextToPDF;
